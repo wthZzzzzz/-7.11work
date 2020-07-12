@@ -59,12 +59,12 @@
                 enumerable: true
             }
         })
-        console.log(objectFive.name, objectFive.age);   // 小胡, 22
+        console.log(objectFive.name, objectFive.age);
 
         //阻止修改属性的值
         Object.freeze(objectFive);
         objectFive.name = "魏天昊";
-        console.log(objectFive.name, objectFive.age);   // 小胡, 22
+        console.log(objectFive.name, objectFive.age);
 
         //for in循环,遍历出对象中的键、值
         for (var key in objectFive) {
