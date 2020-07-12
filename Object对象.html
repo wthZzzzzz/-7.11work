@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object对象</title>
+</head>
+
+<body>
+    <script>
+        //Object对象
+        var objectOne = { name: "魏天昊" };
+        var objectTwo = { age: 21 };
+        var objectThree = {
+            sing: function () {
+                console.log("say");
+            }
+        }
+
+        //assign方法只有第一个参数被改变，其他的不会改变
+        console.log(Object.assign(objectOne, objectTwo, objectThree));
+        console.log(objectOne);
+        console.log(objectTwo);
+
+        //is方法判断两个值是否相同
+        console.log(Object.is(objectTwo, objectOne));   //false
+        console.log(Object.is(objectTwo, objectTwo));   //true
+
+        //判断一个对象在不在原型链上
+        function functionOne() {
+        }
+        var functionTwo = functionOne();
+        console.log(functionOne.prototype.isPrototypeOf(functionTwo));  //false
+
+        //给对象定义属性
+        var objectFour = new Object();
+        Object.defineProperty(objectFour, 'age', {
+            configurable: true,
+            writable: true,
+            enumerable: true,
+            value: 21
+        })
+        console.log(objectFour.age);
+
+        //定义或者修改多个属性
+        var objectFive = new Object();
+        Object.defineProperties(objectFive, {
+            name: {
+                value: '魏天昊',
+                configurable: false,
+                writable: true,
+                enumerable: true
+            },
+            age: {
+                value: 21,
+                configurable: true,
+                writable: true,
+                enumerable: true
+            }
+        })
+        console.log(objectFive.name, objectFive.age);   // 小胡, 22
+
+        //阻止修改属性的值
+        Object.freeze(objectFive);
+        objectFive.name = "魏天昊";
+        console.log(objectFive.name, objectFive.age);   // 小胡, 22
+
+        //for in循环,遍历出对象中的键、值
+        for (var key in objectFive) {
+            console.log(key, objectFive[key]);
+        }
+
+        //获取到所有的键
+        var keys = Object.keys(objectFive);
+        console.log(keys);
+
+        //返回对象的所有属性
+        var props = Object.getOwnPropertyNames(objectFive);
+        console.log(props);
+
+        var syms = Object.getOwnPropertySymbols(objectFive);
+        console.log(props);
+
+        var refs = Reflect.ownKeys(objectFive);
+        console.log(refs);
+
+        //返回对象的所有属性值
+        var values = Object.values(objectFive);
+        console.log(values);
+    </script>
+</body>
+
+</html>

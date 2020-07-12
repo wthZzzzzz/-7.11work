@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array对象</title>
+</head>
+
+<body>
+    <script>
+        //Array对象
+        var array = new Array(2, 3, 4, 5, 6, 7);
+
+        //在数组后插入一个数
+        console.log(array.push(8));
+
+        //从数组后删除一个数
+        console.log(array.pop());
+
+        //在数组前插入一个数
+        console.log(array.unshift(8));
+
+        //在数组前删除一个数
+        console.log(array.shift());
+
+        //把数组用|合并起来
+        console.log(array.join("|"));
+        console.log(array.slice(2, 1));
+        console.log(array.splice(2, 1, 45));
+        console.log(array.concat([2, 1], [45, 12, 32, 3]));
+
+        //返回2的下标-从前bian开始
+        console.log(array.indexOf(2));
+
+        //返回2的下标-从后边开始
+        console.log(array.lastIndexOf(2));
+
+        //将数组排序
+        console.log(array.sort());
+
+        //遍历数组元素
+        array.forEach(function (value, index) {
+            console.log(value, index);
+        })
+
+        //筛选数组元素
+        array.filter(function (value, index) {
+            return value > 3;
+        })
+
+        //映射出元素
+        array.map(function (value, index) {
+            console.log(value, index);
+        })
+
+        //判断数组中是否有一些元素符合某个要求
+        console.log(array.some(function (value, index) {
+            return value > 3;
+        }))
+
+        //判断数组中是否全部元素符合某个要求
+        console.log(array.every(function (value, index) {
+            return value > 3;
+        }))
+
+        //数组的反转
+        console.log(array.reverse());
+
+        //判断数组是否含有某个元素
+        console.log(array.includes(2));
+        
+    </script>
+</body>
+
+</html>
